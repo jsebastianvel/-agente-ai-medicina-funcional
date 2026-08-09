@@ -10,9 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # free tier is capped at 20 generate_content requests/day on this account -
 # unworkable once evals run in CI on every push. "gemini-2.5-flash*" is 404
 # (deprecated for new users on this account) and "gemini-2.0-flash*" is a
-# permanent 0-quota free tier here. "gemini-flash-lite-latest" has a workable
-# free-tier quota and, as a bonus, has no "thinking" step eating output tokens
-# (it also rejects any thinking_config at all - don't pass one).
+# permanent 0-quota free tier here. "gemini-flash-lite-latest" (resolves to
+# gemini-3.5-flash-lite) has a workable free-tier quota - but still only 15
+# generate_content requests/MINUTE - and has no "thinking" step eating output
+# tokens (it also rejects any thinking_config at all - don't pass one).
 GENERATION_MODEL = "gemini-flash-lite-latest"
 EMBEDDING_MODEL = "models/gemini-embedding-001"
 
@@ -32,3 +33,7 @@ RETRIEVAL_TOP_K = 5
 MAX_OUTPUT_TOKENS = 500
 FAITHFULNESS_THRESHOLD = 4.0
 MAX_REVISIONS = 2
+
+# Each eval case can make ~3-4 generate_content calls (router/draft/critic/judge);
+# at 15 req/min this keeps a full golden-set run under quota. See GENERATION_MODEL.
+EVAL_PACING_SECONDS = 15

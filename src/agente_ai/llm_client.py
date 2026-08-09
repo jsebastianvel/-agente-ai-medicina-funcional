@@ -29,10 +29,14 @@ def get_client() -> genai.Client:
     return _client
 
 
-def call_with_retry(fn, *args, max_retries: int = 3, base_delay: float = 1.0, **kwargs):
+def call_with_retry(fn, *args, max_retries: int = 5, base_delay: float = 3.0, **kwargs):
     """Retries fn with exponential backoff — the Gemini free tier rate-limits
     aggressively and the sibling trading_bot_btc project has no retry handling
-    at all, which this project deliberately fixes."""
+    at all, which this project deliberately fixes.
+
+    gemini-flash-lite-latest's free tier is limited per-MINUTE (observed: 15
+    requests/min), not just per-day, so a short 1-3s backoff isn't enough to
+    clear the window - defaults here go 3/6/12/24/48s (~90s worst case)."""
     for attempt in range(max_retries):
         try:
             return fn(*args, **kwargs)

@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -75,7 +76,13 @@ def evaluate_case(case: dict) -> dict:
 
 def run() -> None:
     cases = load_golden_set()
-    results = [evaluate_case(case) for case in cases]
+    results = []
+    for i, case in enumerate(cases):
+        if i > 0:
+            # Stay under the model's per-minute free-tier quota (see
+            # config.EVAL_PACING_SECONDS) rather than relying on retries alone.
+            time.sleep(config.EVAL_PACING_SECONDS)
+        results.append(evaluate_case(case))
 
     faithfulness_scores = [r["faithfulness"] for r in results if "faithfulness" in r]
     avg_faithfulness = sum(faithfulness_scores) / len(faithfulness_scores) if faithfulness_scores else 0.0
