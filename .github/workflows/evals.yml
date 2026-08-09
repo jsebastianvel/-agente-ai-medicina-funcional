@@ -1,0 +1,29 @@
+name: Evals
+
+on: [push, pull_request]
+
+env:
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  # Relative path is fine here: unlike local Windows/OneDrive dev, this runner
+  # has no issue creating new directories inside the checkout.
+  CHROMA_DATA_DIR: data/chroma
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build RAG index
+        run: python -m agente_ai.ingestion.build_index
+      - name: Run evals
+        run: python evals/run_evals.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results
+          path: evals/results.json

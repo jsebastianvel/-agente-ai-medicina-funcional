@@ -1,0 +1,21 @@
+﻿TITULO: Microbiota Intestinal: funciones y su papel en la medicina funcional
+FUENTE: https://funcionales.es/monografias/microbiota-intestinal/
+---
+
+La microbiota intestinal humana está compuesta por aproximadamente 10^14 bacterias, considerada cada vez más como "otro órgano o sistema diferenciado". Esta población bacteriana desempeña un papel fundamental en la inmunidad, digestión, metabolismo, inflamación y proliferación celular. Posee la capacidad de comunicarse no solo con el epitelio intestinal, sino también con órganos distantes como el cerebro y el aparato locomotor.
+
+En medicina funcional, la microbiota no se evalúa como un tema aislado, sino como parte de una red que incluye nutrición, estrés, sueño, sistema inmune, metabolismo, hormonas e historia clínica.
+
+El estudio de la microbiota abre conocimiento sobre múltiples enfermedades funcionales. Es cada vez más reconocido el eje microbiota-intestino-cerebro por la comunidad médica. Las intolerancias alimentarias, procesos alérgicos, enfermedad inflamatoria intestinal crónica, síndrome de intestino irritable, obesidad, síndrome metabólico y depresión podrían compartir alteraciones de la microbiota intestinal como nexo común.
+
+El proyecto microbioma humano (2012) identificó más de 3 millones de genes bacterianos en muestras de individuos sanos y con diversas patologías. Cada persona posee un microbioma especial y diferenciado, compartiendo un núcleo con tres géneros bacterianos: Bacteroides, Prevotella y Ruminococcus.
+
+Durante los primeros tres años de vida, la adquisición de estas poblaciones resulta crítica para la existencia posterior. Las bacterias intestinales actúan como comensales esenciales para desarrollar funciones intestinales y crear respuesta inmune innata y adaptativa, influyendo decisivamente en la salud digestiva. La biodiversidad bacteriana de estos primeros años constituye una clave principal para desarrollar buena respuesta inmune y ausencia de enfermedad.
+
+Existen mecanismos inmunes, hormonales y neuronales que hacen posible la interacción bi y tridireccional del eje microbiota-intestino-cerebro, desarrollando mecanismos de biofeedback regulatorio. Múltiples trastornos gastrointestinales funcionales, obesidad, diabetes, ansiedad, depresión e incluso autismo se relacionan con disfunción de este eje. El estrés influye en la motilidad intestinal, secreciones y microinflamación mucosa. La microbiota afecta el desarrollo cerebral, influenciando circuitos neuronales del control motor y emocional, y desarrollo de neurotransmisores como la serotonina.
+
+Los trastornos metabólicos guardan importante interrelación con la microbiota y microinflamación intestinal, pudiendo alterar la homeostasis de glucosa, sensibilidad a leptina y absorción de alimentos. Existen ensayos buscando alternativas al tratamiento del sobrepeso mediante pre y probióticos, sabiendo que una baja diversidad microbiana intestinal es factor predictivo de mal pronóstico en tratamiento dietético de obesidad.
+
+En el intestino delgado, la microbiota es pobre, formada principalmente por Bacteroides, Escherichia y Clostridium. Inundar con Lactobacillus resulta útil en sobrecrecimiento bacteriano y síndrome de intestino irritable. La Rifaximina, antibiótico no absorbible, resulta especialmente útil en sobrecrecimiento bacteriano, algunas formas de intestino irritable e incluso estreñimiento crónico refractario.
+
+El trasplante de microbiota ha ganado popularidad para tratar colitis pseudomembranosa producida por Clostridium difficile resistente a antibióticos, logrando curación en casi 90% de pacientes. Actualmente hay ensayos en obesidad y otras enfermedades intestinales.

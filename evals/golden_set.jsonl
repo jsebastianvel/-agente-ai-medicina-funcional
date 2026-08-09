@@ -1,0 +1,10 @@
+{"question": "¿Qué es la medicina funcional?", "expected_route": "rag_qa", "expected_sources": ["definicion_medicina_funcional"]}
+{"question": "¿Cómo afecta el estrés al cortisol?", "expected_route": "rag_qa", "expected_sources": ["eje_hpa_estres_cortisol"]}
+{"question": "¿Qué es la dieta de eliminación?", "expected_route": "rag_qa", "expected_sources": ["nutricion_funcional_dieta_eliminacion"]}
+{"question": "¿Cómo se relaciona la microbiota intestinal con la obesidad?", "expected_route": "rag_qa", "expected_sources": ["microbiota_intestinal"]}
+{"question": "¿Qué es la inflamación crónica de bajo grado?", "expected_route": "rag_qa", "expected_sources": ["inflamacion_cronica_bajo_grado"]}
+{"question": "¿Cómo funciona la detoxificación hepática?", "expected_route": "rag_qa", "expected_sources": ["detoxificacion_vias_hepaticas"]}
+{"question": "¿Qué es la dieta antiinflamatoria?", "expected_route": "rag_qa", "expected_sources": ["dieta_antiinflamatoria"]}
+{"question": "Tengo fatiga cronica e insomnio desde hace meses, ¿que podria estar pasando?", "expected_route": "symptom_check", "expect_tool": "symptom_checker_tool"}
+{"question": "Tengo hinchazon y gases frecuentes despues de comer", "expected_route": "symptom_check", "expect_tool": "symptom_checker_tool"}
+{"question": "¿Cual es la capital de Francia?", "expected_route": "reject"}

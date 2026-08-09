@@ -1,0 +1,21 @@
+[project]
+name = "agente-ai"
+version = "0.1.0"
+description = "Multi-agent RAG assistant for functional medicine Q&A — AI engineering portfolio project"
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Disabled: the cache dir can't be created under this repo's location on
+# Windows/OneDrive (see project memory) and the suite is small enough not to
+# need it.
+addopts = "-p no:cacheprovider"
+
+[tool.ruff]
+line-length = 110

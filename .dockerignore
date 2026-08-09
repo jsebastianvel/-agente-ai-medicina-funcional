@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.git/
+.env
+data/chroma/
+logs/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+venv/
