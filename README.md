@@ -159,3 +159,7 @@ repro or a Docker-based host (e.g. an HF Spaces Docker Space).
 6. Deploy. First load will lazy-build the Chroma index (see `ensure_index_built()` in
    `streamlit_app.py`) since the platform's filesystem doesn't persist the baked-in Docker
    image — this makes every fresh deploy self-healing without a separate "publish index" step.
+
+## License
+
+[MIT](LICENSE)
