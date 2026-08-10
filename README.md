@@ -4,7 +4,7 @@ Portfolio project demonstrating a multi-agent, tool-using, RAG-grounded assistan
 LangGraph and the Gemini API, at $0 infrastructure cost. Domain: functional medicine Q&A,
 grounded in a small curated Spanish-language article corpus.
 
-**Live demo:** _not yet deployed — see [Deployment](#deployment)._
+**Live demo:** [4itml79bx2d53juvapoj4o.streamlit.app](https://4itml79bx2d53juvapoj4o.streamlit.app/)
 
 ## Quickstart
 
@@ -87,7 +87,10 @@ See the implementation plan for full design rationale.
 Uses `gemini-flash-lite-latest` for generation, not `gemini-flash-latest`: the "latest" alias
 currently resolves to a newer model capped at 20 free-tier requests/day on this account, which
 evals running in CI would blow through immediately. The lite model also has no "thinking" step,
-so it doesn't burn output-token budget on invisible reasoning before answering.
+so it doesn't burn output-token budget on invisible reasoning before answering — but its own
+free tier caps at **15 requests/minute**, which `evals/run_evals.py` paces around
+(`config.EVAL_PACING_SECONDS`) rather than relying solely on `llm_client.call_with_retry`'s
+backoff.
 
 ## Evals
 
@@ -104,7 +107,8 @@ the compiled graph and checks:
 Writes `evals/results.json` and exits non-zero if average faithfulness drops below
 `config.FAITHFULNESS_THRESHOLD` (4.0) — this is the CI gate in `.github/workflows/evals.yml`.
 `.github/workflows/ci.yml` runs lint + the fully-mocked unit test suite on every push,
-independent of API quota.
+independent of API quota. Latest CI run: **100% routing accuracy, 5.00/5 faithfulness**
+across the full golden set.
 
 ## Observability
 
@@ -127,6 +131,10 @@ same per-run trace live.
 
 ## Deployment
 
+**Live**: deployed on Streamlit Community Cloud at
+[4itml79bx2d53juvapoj4o.streamlit.app](https://4itml79bx2d53juvapoj4o.streamlit.app/), tracking
+the `main` branch.
+
 **Docker** (local reproducibility / alternate hosts):
 
 ```bash
@@ -135,11 +143,10 @@ docker run -p 8501:8501 -e GEMINI_API_KEY=<your-key> agente-ai
 ```
 
 The image bakes the Chroma index in at build time. Not required for Streamlit Community Cloud
-below (it installs `requirements.txt` and runs `streamlit_app.py` directly), but useful for
-local repro or a Docker-based host (e.g. an HF Spaces Docker Space).
+(it installs `requirements.txt` and runs `streamlit_app.py` directly), but useful for local
+repro or a Docker-based host (e.g. an HF Spaces Docker Space).
 
-**Streamlit Community Cloud** (primary target — free, matches the hosting already used for the
-sibling `trading_bot_btc` project):
+**Streamlit Community Cloud setup** (for reference / redeploying elsewhere):
 
 1. Push this repo to a public GitHub repository.
 2. Go to [share.streamlit.io](https://share.streamlit.io), sign in with GitHub, "New app".
@@ -148,6 +155,7 @@ sibling `trading_bot_btc` project):
    ```toml
    GEMINI_API_KEY = "your-key-here"
    ```
-5. Deploy. First load will lazy-build the Chroma index (see `ensure_index_built()` in
+5. In Settings → Sharing, set the app to public (otherwise it defaults to invite-only).
+6. Deploy. First load will lazy-build the Chroma index (see `ensure_index_built()` in
    `streamlit_app.py`) since the platform's filesystem doesn't persist the baked-in Docker
    image — this makes every fresh deploy self-healing without a separate "publish index" step.
