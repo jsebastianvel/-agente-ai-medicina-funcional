@@ -4,7 +4,7 @@ Portfolio project demonstrating a multi-agent, tool-using, RAG-grounded assistan
 LangGraph and the Gemini API, at $0 infrastructure cost. Domain: functional medicine Q&A,
 grounded in a small curated Spanish-language article corpus.
 
-**Live demo:** [4itml79bx2d53juvapoj4o.streamlit.app](https://4itml79bx2d53juvapoj4o.streamlit.app/)
+**Live demo:** [functionalmedicineagent.streamlit.app](https://functionalmedicineagent.streamlit.app/)
 
 ## Quickstart
 
@@ -132,7 +132,7 @@ same per-run trace live.
 ## Deployment
 
 **Live**: deployed on Streamlit Community Cloud at
-[4itml79bx2d53juvapoj4o.streamlit.app](https://4itml79bx2d53juvapoj4o.streamlit.app/), tracking
+[functionalmedicineagent.streamlit.app](https://functionalmedicineagent.streamlit.app/), tracking
 the `main` branch.
 
 **Docker** (local reproducibility / alternate hosts):
